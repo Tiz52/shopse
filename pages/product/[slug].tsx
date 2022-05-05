@@ -1,16 +1,16 @@
 import {GetStaticPaths, GetStaticProps} from "next";
 import {FC} from "react";
 import {PageLayout} from "../../components/layout";
-import {ProductSection} from "../../components/sections/ProductSection";
+import {ProductSection} from "../../components/sections";
+
 import {seedData, SeedProduct} from "../../database";
 
 interface Props {
   product: SeedProduct;
 }
-
 const ProductPage: FC<Props> = ({product}) => {
   return (
-    <PageLayout>
+    <PageLayout title={product.title} pageDescription={product.description}>
       <ProductSection product={product} />
     </PageLayout>
   );

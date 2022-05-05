@@ -8,7 +8,10 @@ const AccessoriesPage = () => {
   );
 
   return (
-    <PageLayout>
+    <PageLayout
+      title="Shopse - Accessories"
+      pageDescription="Shopse accessories"
+    >
       <CategorySection products={products} category="accessories" />
     </PageLayout>
   );

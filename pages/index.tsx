@@ -4,7 +4,7 @@ import {HeroSection} from "../components/sections";
 
 const Home: NextPage = () => {
   return (
-    <PageLayout>
+    <PageLayout title="Shopse." pageDescription="Shopse Page">
       <HeroSection />
     </PageLayout>
   );

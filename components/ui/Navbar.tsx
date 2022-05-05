@@ -16,7 +16,7 @@ export const Navbar: FC<Props> = ({handleMenu}) => {
   const router = useRouter();
 
   return (
-    <nav className="relative flex h-14 z-[2] text-gray-100">
+    <nav className="relative flex h-14 z-[999] text-gray-100">
       <div className="flex items-center justify-between w-full ">
         <div
           className={`text-3xl font-semibold ${
