@@ -2,7 +2,7 @@ import {FC, useReducer} from "react";
 import {UiContext, uiReducer} from "./";
 
 export interface UiState {
-  categoryActive: "shoes" | "clothing" | "accessories" | "none";
+  categoryActive: "clothing" | "accessories" | "none";
 }
 
 const Ui_INITIAL_STATE: UiState = {
@@ -17,10 +17,10 @@ export const UiProvider: FC<Props> = ({children}) => {
   const [state, dispatch] = useReducer(uiReducer, Ui_INITIAL_STATE);
 
   const changeCategoryActive = (
-    categoryActive: "shoes" | "clothing" | "accessories" | "none",
+    categoryActive: "clothing" | "accessories" | "none",
   ) => {
     dispatch({
-      type: "[Ui] - Change Category Active",
+      type: "[Ui] - Change Category",
       payload: categoryActive,
     });
   };

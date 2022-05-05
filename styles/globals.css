@@ -49,7 +49,7 @@
     font-display: block;
     font-style: normal;
     font-named-instance: 'Regular';
-    src: url('/fonts/inter/Inter-roman.var.woff2?v=3.15') format('woff2');
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap') format("ttf");
   }
   
   @font-face {
@@ -58,7 +58,7 @@
     font-display: block;
     font-style: italic;
     font-named-instance: 'Italic';
-    src: url('/fonts/inter/Inter-italic.var.woff2?v=3.15') format('woff2');
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap') format("ttf");
   }
 
   .has-scroll-smooth {
@@ -70,18 +70,4 @@
     overflow-y: scroll;
   }
 
-}
-
-@layer components {
-  .hoverAnimation {
-    @apply hover:bg-[#d9d9d9] hover:bg-opacity-10 rounded-2xl
-		cursor-pointer w-[40px] h-[40px] xl:w-auto xl:h-auto xl:py-2 xl:px-2 
-		transition duration-200 ease-out;
-  }
-
-  .icon {
-    @apply cursor-pointer w-9 h-9 hover:bg-[#1d9bf0] 
-    hover:bg-opacity-10 flex items-center justify-center rounded-full 
-    transition ease-out;
-  }
 }

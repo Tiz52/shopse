@@ -1,57 +1,62 @@
 import gsap from "gsap";
 import Image from "next/image";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, FC} from "react";
+import {imgTopRightAnimation, imgBotRigthAnimation} from "../../animations";
 
-export const SideRightProducts = () => {
+interface Props {
+  imgsUrl: string[];
+}
+
+export const SideRightProducts: FC<Props> = ({imgsUrl}) => {
   const imgTopRef = useRef<HTMLDivElement>(null);
   const imgBotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.to(imgTopRef.current, {
-      duration: 2,
-      opacity: 1,
-      ease: "power3.inOut",
-      rotation: -10,
-      x: -300,
-      y: -50,
-    });
-  }, []);
+    const tl = gsap
+      .timeline()
+      .fromTo(
+        imgTopRef.current,
+        imgTopRightAnimation.from,
+        imgTopRightAnimation.to,
+      )
+      .fromTo(
+        imgBotRef.current,
+        imgBotRigthAnimation.from,
+        imgBotRigthAnimation.to,
+      );
 
-  useEffect(() => {
-    gsap.to(imgBotRef.current, {
-      duration: 2,
-      opacity: 1,
-      ease: "power3.inOut",
-      rotation: 10,
-      x: -300,
-      y: -50,
-    });
-  }, []);
+    return () => {
+      tl.kill();
+    };
+  }, [imgsUrl, imgTopRef, imgBotRef]);
 
   return (
-    <div className="flex flex-col items-end justify-center overflow-hidden ">
-      <div className="relative w-3/5 h-1/2">
-        <div
-          className="absolute w-full h-full rotate-[25deg] -right-60 xl:-right-48 -top-32 opacity-0"
-          ref={imgTopRef}
-        >
+    <div className="flex-col items-start justify-center hidden overflow-hidden md:flex ">
+      <div className="relative w-3/5 h-1/3 -top-[5%] left-[20%]">
+        <div className="relative opacity-1" ref={imgTopRef}>
           <Image
-            src="/placeholder.jpg"
+            className="border-2 rounded-xl"
+            src={imgsUrl[0]}
             alt="placeholder"
-            layout="fill"
+            width={300}
+            height={300}
+            layout="responsive"
             objectFit="contain"
             priority
           />
         </div>
 
         <div
-          className="absolute w-full h-full rotate-[45deg] -right-60 xl:-right-48 top-32  opacity-0"
+          className="relative opacity-0 -top-[10%] left-[5%]"
           ref={imgBotRef}
         >
           <Image
-            src="/placeholder.jpg"
+            className="border-2 rounded-xl"
+            src={imgsUrl[1]}
             alt="placeholder"
-            layout="fill"
+            width={300}
+            height={300}
+            layout="responsive"
             objectFit="contain"
             priority
           />

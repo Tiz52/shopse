@@ -12,7 +12,7 @@ export const SubCategoryList: FC<Props> = ({subcategories}) => {
         <Link href={"/"} passHref key={subcategory}>
           <a
             className="text-xl hover:text-[#d9d9d9] pl-[25%]
-					  hover:underline"
+					  hover:underline capitalize"
           >
             {subcategory}
           </a>
