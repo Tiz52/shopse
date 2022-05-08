@@ -3,10 +3,12 @@ import {UiContext, uiReducer} from "./";
 
 export interface UiState {
   categoryActive: "clothing" | "accessories" | "none";
+  isModalOpen: boolean;
 }
 
 const Ui_INITIAL_STATE: UiState = {
   categoryActive: "none",
+  isModalOpen: false,
 };
 
 interface Props {
@@ -25,6 +27,20 @@ export const UiProvider: FC<Props> = ({children}) => {
     });
   };
 
+  const closeModal = () => {
+    dispatch({
+      type: "[Ui] - Close Modal",
+      payload: false,
+    });
+  }
+  const openModal = () => {
+    dispatch({
+      type: "[Ui] - Open Modal",
+      payload: true,
+
+    });
+  }
+
   return (
     <UiContext.Provider
       value={{
@@ -32,6 +48,8 @@ export const UiProvider: FC<Props> = ({children}) => {
 
         //methods
         changeCategoryActive,
+        openModal,
+        closeModal,
       }}
     >
       {children}

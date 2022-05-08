@@ -1,4 +1,4 @@
-import {PageLayout} from "../../components/layout";
+import {ShopseLayout} from "../../components/layout";
 import {CategorySection} from "../../components/sections";
 import {seedData} from "../../database";
 
@@ -8,12 +8,12 @@ const AccessoriesPage = () => {
   );
 
   return (
-    <PageLayout
+    <ShopseLayout
       title="Shopse - Accessories"
       pageDescription="Shopse accessories"
     >
       <CategorySection products={products} category="accessories" />
-    </PageLayout>
+    </ShopseLayout>
   );
 };
 export default AccessoriesPage;

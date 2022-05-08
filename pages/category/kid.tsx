@@ -1,4 +1,4 @@
-import {PageLayout} from "../../components/layout";
+import {ShopseLayout} from "../../components/layout";
 import {CategorySection} from "../../components/sections";
 import {seedData} from "../../database";
 
@@ -8,9 +8,9 @@ const ClothingPage = () => {
   );
 
   return (
-    <PageLayout title="Shopse - Kid" pageDescription="Shopse kid">
+    <ShopseLayout title="Shopse - Kid" pageDescription="Shopse kid">
       <CategorySection products={products} category="kid" />
-    </PageLayout>
+    </ShopseLayout>
   );
 };
 export default ClothingPage;

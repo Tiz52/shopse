@@ -1,6 +1,6 @@
 import {GetStaticPaths, GetStaticProps} from "next";
 import {FC} from "react";
-import {PageLayout} from "../../components/layout";
+import {ShopseLayout} from "../../components/layout";
 import {ProductSection} from "../../components/sections";
 
 import {seedData, SeedProduct} from "../../database";
@@ -10,9 +10,9 @@ interface Props {
 }
 const ProductPage: FC<Props> = ({product}) => {
   return (
-    <PageLayout title={product.title} pageDescription={product.description}>
+    <ShopseLayout width="w-full" title={product.title} pageDescription={product.description}>
       <ProductSection product={product} />
-    </PageLayout>
+    </ShopseLayout>
   );
 };
 export default ProductPage;

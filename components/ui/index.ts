@@ -6,3 +6,5 @@ export * from "./SideLeftProducts";
 export * from "./FavoriteButton";
 export * from "./CartButton";
 export * from "./Carousel";
+export * from "./TransitionBox";
+export * from "./CartIconBadge";

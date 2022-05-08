@@ -1,12 +1,24 @@
 import type {NextPage} from "next";
-import {PageLayout} from "../components/layout";
-import {HeroSection} from "../components/sections";
+import {ShopseLayout} from "../components/layout";
+import {CategorySection} from "../components/sections";
+import { seedData } from "../database";
+
+
+
+
 
 const Home: NextPage = () => {
+
+  const products = seedData.products.filter(
+    (product) => product.category === "clothing",
+  );
+
+  
   return (
-    <PageLayout title="Shopse." pageDescription="Shopse Page">
-      <HeroSection />
-    </PageLayout>
+    <ShopseLayout title="Shopse." pageDescription="Shopse Page">
+      {/* <HeroSection /> */}
+      <CategorySection category="Todos los productos"  products={products}/>
+    </ShopseLayout>
   );
 };
 

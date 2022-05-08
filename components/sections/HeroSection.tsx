@@ -2,6 +2,7 @@ import {SearchProducts, SideLeftProducts, SideRightProducts} from "../ui";
 import {useContext, useEffect, useState} from "react";
 import {UiContext} from "../../context/ui";
 import {seedData} from "../../database";
+import Image from "next/image";
 
 export const HeroSection = () => {
   const {categoryActive} = useContext(UiContext);
@@ -29,10 +30,20 @@ export const HeroSection = () => {
   }, [categoryActive]);
 
   return (
-    <section className="grid md:grid-cols-3 h-[calc(100vh-72px)]">
-      <SideLeftProducts imgsUrl={leftImgsUrl} />
-      <SearchProducts />
-      <SideRightProducts imgsUrl={rightImgsUrl} />
+    <section className="flex flex-col items-center h-screen">
+      <div className="pt-[72px] flex justify-center w-full h-[40%] bg-black"> 
+        <div className="flex justify-center items-center gap-4 max-w-[1440px]">
+          <div className="flex flex-col items-center justify-center gap-6">
+          <span className="text-5xl text-tertiary lg:text-7xl">TIENDA CON LOS MEJORES</span>  
+          <span className="text-5xl text-tertiary lg:text-7xl">PRODUCTOS ONLINE</span>  
+          </div>
+          </div>
+        </div>
+        <div className="grid h-[60%] max-w-[1440px] md:grid-cols-3">
+        <SideLeftProducts imgsUrl={leftImgsUrl} />
+        <SearchProducts />
+        <SideRightProducts imgsUrl={rightImgsUrl} />
+      </div>
     </section>
   );
 };

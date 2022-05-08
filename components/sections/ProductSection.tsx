@@ -10,7 +10,7 @@ interface Props {
 
 export const ProductSection: FC<Props> = ({product}) => {
   return (
-    <section className="grid gap-4 md:grid-cols-2 text-primary h-[calc(100vh-72px)]">
+    <section className="grid h-screen gap-4 md:grid-cols-2 text-primary">
       <Carousel imgs={product.images} slug={product.slug} />
       <ProductInfo product={product} />
     </section>

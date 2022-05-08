@@ -1,11 +1,11 @@
-import {PageLayout} from "../../components/layout";
+import {ShopseLayout} from "../../components/layout";
 import {CartSection} from "../../components/sections";
 
 const CartPage = () => {
   return (
-    <PageLayout>
+    <ShopseLayout title="Carrito - 4" pageDescription="Carrito de compras">
       <CartSection />
-    </PageLayout>
+    </ShopseLayout>
   );
 };
 export default CartPage;

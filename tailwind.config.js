@@ -5,19 +5,28 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "3xl": "1440px",
+      },
       colors: {
-        primary: "#D9D9D9",
-        secondary: "#4592AF",
+        primary: "#000000",
+        secondary: "#FFFFFF",
+        tertiary: "#E5E5E5",
+        quaternary: "#14213D",
+        quinary: "#FCA311",
+      },
+      height: {
+        main: "calc(100vh - 72px)",
       },
       gridTemplateColumns: {
-        "product-list": "repeat(auto-fit, minmax(400px, 1fr))",
+        "product-list": "repeat(auto-fill, minmax(250px, 1fr))",
       },
       gridTemplateRows: {
         "product-carousel": "1fr 3fr",
       },
       backgroundImage: {
-        product: "linear-gradient(90deg, #D9D9D9 50%, black 50%)",
-        productMobile: "linear-gradient(180deg, #D9D9D9 36%, black 36%)",
+        product: "linear-gradient(90deg, #ffffff 50%, #000000 50%)",
+        productMobile: "linear-gradient(180deg, #ffffff 36%, #000000 36%)",
       },
     },
   },

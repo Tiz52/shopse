@@ -7,28 +7,27 @@ interface Props {
   title: string;
   pageDescription: string;
   imgUrl?: string;
+  width?: string;
 }
 
-export const PageLayout: FC<Props> = ({
+export const ShopseLayout: FC<Props> = ({
   children,
   title,
   pageDescription,
   imgUrl,
+  width
 }) => {
   const router = useRouter();
+
+
+  const layoutWidth = width ? width : "max-w-[1440px]";
 
   return (
     <>
       <Meta title={title} pageDescription={pageDescription} imgUrl={imgUrl} />
-      <div
-        className={`${
-          router.asPath.includes("product")
-            ? "bg-productMobile md:bg-product"
-            : "bg-black"
-        }`}
-      >
+      <div>
         <Header />
-        <main className="pt-[72px] max-w-[1440px] mx-auto">{children}</main>
+        <main className={layoutWidth + " mx-auto"}>{children}</main>
         {/* <Footer /> */}
       </div>
     </>
