@@ -31,26 +31,29 @@ export const LoginSection = () => {
   const handleClick = () => {};
 
   return (
-    <div className="flex items-center justify-center w-full min-h-screen">
-      <div className="relative flex flex-col gap-6 overflow-hidden shadow-xl shadow-tertiary/50 rounded-xl">
+    <div className="flex items-center justify-center w-full min-h-screen ">
+      <div className="relative flex flex-col gap-6 overflow-hidden bg-secondary">
         <motion.div
-          className="absolute z-[999] left-0 top-0 w-full bg-quinary"
+          className="absolute z-[999] left-0 top-0 w-full bg-primary"
           initial="hidden"
           animate="show"
           variants={variants}
           exit="exit"
         />
-        <div className="px-6 pt-20 pb-12 mb-6 bg-primary">
-          <h1 className="text-3xl font-bold md:text-4xl text-secondary">
-            Bienvenido a Shopse.
+        <div className="px-6 pt-20 pb-12 mb-6">
+          <h1 className="text-3xl font-bold md:text-4xl font-headline text-primary">
+            BIENVENIDO
           </h1>
-          <p className="mt-4 text-sm md:text-base text-tertiary">
+          <h1 className="text-3xl font-bold md:text-4xl font-headline text-tertiary">
+            A SHOPSE.
+          </h1>
+          <p className="mt-4 text-sm md:text-base text-primary">
             Inicia sesión para continuar!
           </p>
         </div>
 
         <form className="flex flex-col gap-4 px-6 md:w-[420px]">
-          <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+          <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
             <input
               type="email"
               name="email"
@@ -70,7 +73,7 @@ export const LoginSection = () => {
                 taken!
               </p> */}
           </div>
-          <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+          <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
             <input
               type="password"
               name="password"
@@ -95,8 +98,8 @@ export const LoginSection = () => {
               className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all rounded bg-primary hover:bg-white group"
               onClick={handleClick}
             >
-              <span className="w-48 h-48 rounded rotate-[-40deg] bg-quinary absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-              <span className="relative w-full text-sm text-left transition-colors duration-300 ease-in-out text-secondary md:text-base xl:text-lg group-hover:text-primary">
+              <span className="w-48 h-48 rounded rotate-[-40deg] bg-quaternary absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+              <span className="relative w-full text-sm text-left transition-colors duration-300 ease-in-out text-tertiary md:text-base xl:text-lg group-hover:text-primary">
                 Iniciar Sesión
               </span>
             </button>
@@ -107,7 +110,7 @@ export const LoginSection = () => {
             ¿No tienes una cuenta?
           </p>
           <Link href="/auth/register" passHref>
-            <a className="text-quinary">Registrate</a>
+            <a className="text-primary">Registrate</a>
           </Link>
         </div>
       </div>

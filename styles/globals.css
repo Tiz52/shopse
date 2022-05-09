@@ -42,7 +42,7 @@
     margin: 0;
     font-family: var(--font-body);
     scroll-behavior: smooth;
-    @apply bg-secondary
+    @apply bg-primary;
   }
   
   body.inspect * {
@@ -56,17 +56,17 @@
   outline: none;
   } */
 
-  main {
-    display: block;
-  }
-
   @font-face {
-    font-family: Inter;
-    font-weight: 100 900;
-    font-display: block;
+    font-family: 'Monument Extended';
     font-style: normal;
-    font-named-instance: 'Regular';
-    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap') format("ttf");
+    font-weight: 400;
+    src: local('Monument Extended'), url('https://fonts.cdnfonts.com/s/19595/MonumentExtended-Regular.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Monument Extended';
+      font-style: normal;
+      font-weight: 800;
+      src: local('Monument Extended'), url('https://fonts.cdnfonts.com/s/19595/MonumentExtended-Ultrabold.woff') format('woff');
   }
   
   @font-face {

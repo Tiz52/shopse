@@ -2,14 +2,16 @@ import {TransitionBox} from "../ui";
 
 export const AddressSection = () => {
   return (
-    <section className="px-[24px] pt-[72px] lg:px-12 text-primary">
+    <section className="px-[24px] lg:px-16 text-primary">
       <TransitionBox />
       <div className="py-6 md:py-12">
-        <h1 className="text-3xl capitalize text-primary">Dirección</h1>
+        <h1 className="text-3xl font-bold text-tertiary font-monument md:text-5xl">
+          DIRECCIÓN
+        </h1>
       </div>
 
       <form className="grid grid-cols-1 gap-4 md:gap-8 md:grid-cols-2 group">
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 group rounded-t-md border-primary bg-tertiary">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 group border-primary bg-tertiary">
           <input
             type="firstname"
             name="firstname"
@@ -30,7 +32,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="lastname"
             name="lastname"
@@ -51,7 +53,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="address"
             name="address"
@@ -72,7 +74,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="address2"
             name="address2"
@@ -93,7 +95,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="zip"
             name="zip"
@@ -114,7 +116,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="country"
             name="country"
@@ -135,7 +137,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="city"
             name="city"
@@ -156,7 +158,7 @@ export const AddressSection = () => {
               </p> */}
         </div>
 
-        <div className="relative z-0 flex items-end w-full h-12 border-b-2 rounded-t-md border-primary bg-tertiary group">
+        <div className="relative z-0 flex items-end w-full h-12 border-b-2 border-primary bg-tertiary group">
           <input
             type="phone"
             name="phone"
@@ -179,9 +181,9 @@ export const AddressSection = () => {
       </form>
 
       <div className="flex justify-center mt-8">
-        <button className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all rounded bg-primary hover:bg-white group">
-          <span className="w-48 h-48 rounded rotate-[-40deg] bg-quinary absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-          <span className="relative w-full text-sm text-left transition-colors duration-300 ease-in-out text-secondary md:text-base xl:text-lg group-hover:text-primary">
+        <button className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all rounded bg-tertiary hover:bg-white group">
+          <span className="w-48 h-48 rounded rotate-[-40deg] bg-quaternary absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+          <span className="relative w-full text-sm text-left transition-colors duration-300 ease-in-out text-primary md:text-base xl:text-lg group-hover:text-tertiary">
             Revisar Pedido
           </span>
         </button>

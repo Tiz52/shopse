@@ -1,16 +1,19 @@
 import {ShopseLayout} from "../../components/layout";
 import {CategorySection} from "../../components/sections";
-import {seedData} from "../../database";
+import {FullScreenLoading} from "../../components/ui";
+import {useProducts} from "../../hooks";
 
-const ClothingPage = () => {
-  const products = seedData.products.filter(
-    (product) => product.gender === "women",
-  );
+const WomenPage = () => {
+  const {products, isLoading} = useProducts("/products/?gender=women");
 
   return (
     <ShopseLayout title="Shopse - Women" pageDescription="Shopse women">
-      <CategorySection products={products} category="women" />
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
+        <CategorySection products={products} category="Mujeres" />
+      )}
     </ShopseLayout>
   );
 };
-export default ClothingPage;
+export default WomenPage;

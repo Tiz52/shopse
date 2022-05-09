@@ -12,9 +12,9 @@ export const FavoriteButton = () => {
       onClick={() => setIsLiked(!isLiked)}
     >
       {isLiked ? (
-        <HeartIconSolid className="h-8 text-quinary" />
+        <HeartIconSolid className="h-8 text-quaternary" />
       ) : (
-        <HeartIconOut className="h-8 text-quinary " />
+        <HeartIconOut className="h-8 text-quaternary " />
       )}
     </button>
   );

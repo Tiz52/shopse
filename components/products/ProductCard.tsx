@@ -1,48 +1,32 @@
 import Image from "next/image";
 import {FC} from "react";
-import {SeedProduct} from "../../database";
 import Link from "next/link";
-import {motion} from "framer-motion";
+import {IProduct} from "../../interfaces";
 
 interface Props {
-  product: SeedProduct;
+  product: IProduct;
 }
-export const ProductCard: FC<Props> = ({product}) => {
-  const productCardVariant = {
-    hidden: {
-      opacity: 0,
-      y: -50,
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        type: "spring",
-        stiffness: 20,
-      },
-    },
-  };
 
+export const ProductCard: FC<Props> = ({product}) => {
   return (
-    <motion.div variants={productCardVariant} className="opacity-1 card">
-      <Link href={`/product/${product.slug}`} passHref>
+    <div className="opacity-1 card">
+      <Link href={`/product/${product.slug}`} passHref prefetch={false}>
         <a>
           <Image
-            className="border-2 rounded-lg hover:opacity-90"
+            className="hover:opacity-90"
             src={`/products/${product.images[0]}`}
             width={300}
-            height={400}
+            height={300}
             layout="responsive"
             objectFit="cover"
             alt={product.title}
           />
-          <div className="flex flex-col gap-2 mt-4 text-xl">
-            <span className="text-primary">{product.title}</span>
-            <span className="text-primary">${product.price}</span>
+          <div className="flex flex-col mt-4 text-sm md:gap-2 md:text-xl">
+            <span className="">{product.title}</span>
+            <span className="">${product.price}</span>
           </div>
         </a>
       </Link>
-    </motion.div>
+    </div>
   );
 };

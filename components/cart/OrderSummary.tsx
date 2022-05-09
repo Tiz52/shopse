@@ -8,7 +8,7 @@ export const OrderSummary = () => {
   };
 
   return (
-    <div className="p-3 divide-y-2 rounded-lg shadow-md divide-tertiary md:flex-auto md:p-4 bg-tertiary/10 shadow-primary/5 text-primary">
+    <div className="p-3 divide-y-2 divide-primary md:flex-auto md:p-4 bg-tertiary/80 text-primary">
       <span className="text-lg font-semibold md:text-xl lg:text-2xl">
         Orden
       </span>
@@ -35,8 +35,8 @@ export const OrderSummary = () => {
             overflow-hidden font-medium transition-all bg-primary rounded hover:bg-white group`}
             onClick={handleOrder}
           >
-            <span className="w-48 h-48 rounded rotate-[-40deg] bg-quinary absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-            <span className="relative w-full text-sm text-left transition-colors duration-300 ease-in-out text-secondary md:text-base xl:text-lg group-hover:text-primary">
+            <span className="w-48 h-48 rounded rotate-[-40deg] bg-quaternary absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+            <span className="relative w-full text-sm text-left transition-colors duration-300 ease-in-out text-tertiary md:text-base xl:text-lg group-hover:text-primary">
               Confirmar
             </span>
           </button>

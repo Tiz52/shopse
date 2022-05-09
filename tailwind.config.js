@@ -5,21 +5,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        headline: ["Monument Extended", "sans-serif"],
+        paragraph: ["Inter", "sans-serif"],
+      },
       screens: {
         "3xl": "1440px",
       },
       colors: {
-        primary: "#000000",
-        secondary: "#FFFFFF",
-        tertiary: "#E5E5E5",
-        quaternary: "#14213D",
+        primary: "#272626",
+        secondary: "#727272",
+        tertiary: "#DFDFDF",
+        quaternary: "#B80000",
         quinary: "#FCA311",
       },
       height: {
         main: "calc(100vh - 72px)",
       },
       gridTemplateColumns: {
-        "product-list": "repeat(auto-fill, minmax(250px, 1fr))",
+        "product-list": "repeat(auto-fill, minmax(300px, 1fr))",
       },
       gridTemplateRows: {
         "product-carousel": "1fr 3fr",

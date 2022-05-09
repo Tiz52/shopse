@@ -1,49 +1,114 @@
-import {SearchProducts, SideLeftProducts, SideRightProducts} from "../ui";
-import {useContext, useEffect, useState} from "react";
-import {UiContext} from "../../context/ui";
-import {seedData} from "../../database";
-import Image from "next/image";
+import {FC, useState} from "react";
+import {ProductList} from "../products";
+import {motion} from "framer-motion";
+import {IProduct} from "../../interfaces";
 
-export const HeroSection = () => {
-  const {categoryActive} = useContext(UiContext);
-  const [leftImgsUrl, setLeftImgsUrl] = useState<string[]>([
-    "/placeholder.jpg",
-    "/placeholder.jpg",
-  ]);
-  const [rightImgsUrl, setRightImgsUrl] = useState<string[]>([
-    "/placeholder.jpg",
-    "/placeholder.jpg",
-  ]);
+const sectionVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      type: "easeInOut",
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.25,
+      type: "easeInOut",
+      when: "beforeChildren",
+    },
+  },
+};
+interface Props {
+  fullProducts: IProduct[];
+}
+export const HeroSection: FC<Props> = ({fullProducts}) => {
+  const [category, setCategory] = useState("all");
+  const [products, setProducts] = useState(fullProducts);
 
-  useEffect(() => {
-    let newImgs: string[] = [];
+  const clothing = fullProducts.filter((p) => p.category === "clothing");
+  const accessories = fullProducts.filter((p) => p.category === "accessories");
 
-    const imgs = seedData.products
-      .filter((product) => product.category === categoryActive)
-      .sort(() => Math.random() - 0.5);
-
-    if (imgs.length > 0) {
-      newImgs = imgs.map((product) => `/products/${product.images[0]}`);
-      setLeftImgsUrl([newImgs[0], newImgs[1]]);
-      setRightImgsUrl([newImgs[2], newImgs[3]]);
+  const handleCategory = (category: string) => {
+    setCategory(category);
+    if (category === "clothing") {
+      setProducts(clothing);
     }
-  }, [categoryActive]);
+    if (category === "accessories") {
+      setProducts(accessories);
+    }
+    if (category === "all") {
+      setProducts(fullProducts);
+    }
+  };
 
   return (
-    <section className="flex flex-col items-center h-screen">
-      <div className="pt-[72px] flex justify-center w-full h-[40%] bg-black"> 
-        <div className="flex justify-center items-center gap-4 max-w-[1440px]">
-          <div className="flex flex-col items-center justify-center gap-6">
-          <span className="text-5xl text-tertiary lg:text-7xl">TIENDA CON LOS MEJORES</span>  
-          <span className="text-5xl text-tertiary lg:text-7xl">PRODUCTOS ONLINE</span>  
-          </div>
-          </div>
+    <div className="min-h-screen px-6 md:px-10 lg:px-14 text-tertiary bg-primary">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
+        <div className="py-6">
+          <h1 className="text-4xl font-bold font-monument md:text-6xl">
+            TIENDA
+          </h1>
         </div>
-        <div className="grid h-[60%] max-w-[1440px] md:grid-cols-3">
-        <SideLeftProducts imgsUrl={leftImgsUrl} />
-        <SearchProducts />
-        <SideRightProducts imgsUrl={rightImgsUrl} />
-      </div>
-    </section>
+        <motion.div className="flex gap-4 pb-6" layout>
+          <button
+            className="relative block"
+            onClick={() => handleCategory("all")}
+          >
+            <span>Todo</span>
+            <span className="absolute text-[0.65rem] font-bold leading-none transform rounded-full -top-[4px] -right-2 text-tertiary">
+              {fullProducts.length}
+            </span>
+            {category === "all" && (
+              <motion.span
+                className="absolute bottom-0 block w-full h-[2px] bg-tertiary"
+                layoutId="category"
+              />
+            )}
+          </button>
+          <button
+            className="relative block"
+            onClick={() => handleCategory("clothing")}
+          >
+            <span>Ropa</span>
+            <span className="absolute text-[0.65rem] font-bold leading-none transform rounded-full -top-[4px] -right-2 text-tertiary">
+              {clothing.length}
+            </span>
+            {category === "clothing" && (
+              <motion.span
+                className="absolute bottom-0 block w-full h-[2px] bg-tertiary"
+                layoutId="category"
+              />
+            )}
+          </button>
+          <button
+            className="relative block"
+            onClick={() => handleCategory("accessories")}
+          >
+            <span>Accesorios</span>
+            <span className="absolute text-[0.65rem] font-bold leading-none transform rounded-full -top-[4px] -right-2 text-tertiary">
+              {accessories.length}
+            </span>
+            {category === "accessories" && (
+              <motion.span
+                className="absolute bottom-0 block w-full h-[2px] bg-tertiary"
+                layoutId="category"
+              />
+            )}
+          </button>
+        </motion.div>
+
+        <ProductList products={products} />
+      </motion.section>
+    </div>
   );
 };

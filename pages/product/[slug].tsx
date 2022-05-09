@@ -1,16 +1,16 @@
-import {GetStaticPaths, GetStaticProps} from "next";
-import {FC} from "react";
+import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import {ShopseLayout} from "../../components/layout";
 import {ProductSection} from "../../components/sections";
-
-import {seedData, SeedProduct} from "../../database";
+import {dbProducts} from "../../database";
+import {SeedProduct} from "../../database/seed-data";
+import {IProduct} from "../../interfaces";
 
 interface Props {
-  product: SeedProduct;
+  product: IProduct;
 }
-const ProductPage: FC<Props> = ({product}) => {
+const ProductPage: NextPage<Props> = ({product}) => {
   return (
-    <ShopseLayout width="w-full" title={product.title} pageDescription={product.description}>
+    <ShopseLayout title={product.title} pageDescription={product.description}>
       <ProductSection product={product} />
     </ShopseLayout>
   );
@@ -18,7 +18,7 @@ const ProductPage: FC<Props> = ({product}) => {
 export default ProductPage;
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const products = seedData.products;
+  const products = await dbProducts.getAllProductSlugs();
 
   return {
     paths: products.map(({slug}) => ({
@@ -33,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({params}) => {
   const {slug = ""} = params as {slug: string};
 
-  const product = seedData.products.find((product) => product.slug === slug);
+  const product = await dbProducts.getProductBySlug(slug);
 
   if (!product) {
     return {

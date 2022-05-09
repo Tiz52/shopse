@@ -3,12 +3,12 @@ import {UiContext, uiReducer} from "./";
 
 export interface UiState {
   categoryActive: "clothing" | "accessories" | "none";
-  isModalOpen: boolean;
+  isMenuOpen: boolean;
 }
 
 const Ui_INITIAL_STATE: UiState = {
   categoryActive: "none",
-  isModalOpen: false,
+  isMenuOpen: false,
 };
 
 interface Props {
@@ -27,19 +27,18 @@ export const UiProvider: FC<Props> = ({children}) => {
     });
   };
 
-  const closeModal = () => {
+  const closeMenu = () => {
     dispatch({
       type: "[Ui] - Close Modal",
       payload: false,
     });
-  }
-  const openModal = () => {
+  };
+  const openMenu = () => {
     dispatch({
       type: "[Ui] - Open Modal",
       payload: true,
-
     });
-  }
+  };
 
   return (
     <UiContext.Provider
@@ -48,8 +47,8 @@ export const UiProvider: FC<Props> = ({children}) => {
 
         //methods
         changeCategoryActive,
-        openModal,
-        closeModal,
+        openMenu,
+        closeMenu,
       }}
     >
       {children}

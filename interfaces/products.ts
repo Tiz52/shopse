@@ -12,8 +12,8 @@ export interface IProduct {
   gender: "men" | "women" | "kid" | "unisex";
   likes: number;
   category: ICategory;
-  // createdAt: string;
-  // updatedAt: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export type ISize = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";

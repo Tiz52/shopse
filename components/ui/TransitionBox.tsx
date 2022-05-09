@@ -28,7 +28,7 @@ interface Props {
   color?: string;
 }
 
-export const TransitionBox: FC<Props> = ({color = "bg-secondary"}) => {
+export const TransitionBox: FC<Props> = ({color = "bg-primary"}) => {
   const classColor = color;
   return (
     <motion.div

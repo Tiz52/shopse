@@ -1,23 +1,20 @@
 import type {NextPage} from "next";
+
 import {ShopseLayout} from "../components/layout";
-import {CategorySection} from "../components/sections";
-import { seedData } from "../database";
-
-
-
-
+import {HeroSection} from "../components/sections";
+import {FullScreenLoading} from "../components/ui";
+import {useProducts} from "../hooks";
 
 const Home: NextPage = () => {
+  const {products, isLoading} = useProducts("/products");
 
-  const products = seedData.products.filter(
-    (product) => product.category === "clothing",
-  );
-
-  
   return (
     <ShopseLayout title="Shopse." pageDescription="Shopse Page">
-      {/* <HeroSection /> */}
-      <CategorySection category="Todos los productos"  products={products}/>
+      {isLoading ? (
+        <FullScreenLoading />
+      ) : (
+        <HeroSection fullProducts={products} />
+      )}
     </ShopseLayout>
   );
 };

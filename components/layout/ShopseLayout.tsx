@@ -1,4 +1,3 @@
-import {useRouter} from "next/router";
 import {FC} from "react";
 import {Header, Meta} from ".";
 
@@ -7,7 +6,6 @@ interface Props {
   title: string;
   pageDescription: string;
   imgUrl?: string;
-  width?: string;
 }
 
 export const ShopseLayout: FC<Props> = ({
@@ -15,19 +13,13 @@ export const ShopseLayout: FC<Props> = ({
   title,
   pageDescription,
   imgUrl,
-  width
 }) => {
-  const router = useRouter();
-
-
-  const layoutWidth = width ? width : "max-w-[1440px]";
-
   return (
     <>
       <Meta title={title} pageDescription={pageDescription} imgUrl={imgUrl} />
       <div>
         <Header />
-        <main className={layoutWidth + " mx-auto"}>{children}</main>
+        <main className="mx-auto pt-[72px] max-w-7xl">{children}</main>
         {/* <Footer /> */}
       </div>
     </>

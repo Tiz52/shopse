@@ -9,3 +9,4 @@ export * from "./OrderSection";
 export * from "./HistorySection";
 export * from "./LoginSection";
 export * from "./RegisterSection";
+export * from "./SearchSection";
